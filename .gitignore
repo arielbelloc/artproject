@@ -1,0 +1,19 @@
+###> symfony/framework-bundle ###
+.env
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+### IDE ##
+/.idea/
+### IDE ##
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> coverage ###
+/public/coverage/
+###< coverage ###
