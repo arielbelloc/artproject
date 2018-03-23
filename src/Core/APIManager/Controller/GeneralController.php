@@ -23,7 +23,7 @@ class GeneralController extends Controller
     public function indexAction(APIManager $apiManager)
     {
         return new Response($apiManager
-            ->getAPI(APIManager::RESPONSE_TYPE_DEFAULT)
+            ->getAPI(APIManager::API_TYPE_DEFAULT)
             ->getResponse());
     }
 }
