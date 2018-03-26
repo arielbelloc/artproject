@@ -20,13 +20,18 @@ class DefaultViewConstructor implements ViewConstructorInterface
     public function render()
     {
         $viewData = $this->getContentData();
-        return $this->twig->render(self::TWIG_VIEW_NAME, $viewData);
+        return $this->getRender($viewData);
     }
     
-    protected function getContentData()
+    protected function getContentData() : array
     {
         return [
             'test' => 'Hello World'
         ];
+    }
+
+    protected function getRender(array $viewData)
+    {
+        return $this->twig->render(self::TWIG_VIEW_NAME, $viewData);
     }
 }
