@@ -20,7 +20,7 @@ class GeneralController extends Controller
      * @param APIManager $apiManager
      * @return mixed
      */
-    public function indexAction(APIManager $apiManager)
+    public function index(APIManager $apiManager)
     {
         return new Response($apiManager
             ->getAPI(APIManager::API_TYPE_DEFAULT)
