@@ -32,6 +32,7 @@ class EventListener
         $requestParams = $event->getRequest()->request->all();
         $queryParams = $event->getRequest()->query->all();
 
+        /** TODO: Quitar mock */
         Context::getContext()->hydrate([
             'request' => [
                 'action' => $action,

@@ -18,7 +18,7 @@ class DefaultAPI implements APIInterface
     public function getResponse()
     {
         return $this->renderManager
-            ->getViewConstructor(RenderManager::VIEW_CONSTRUCTOR_TYPE_DEFAULT)
+            ->getViewConstructor()
             ->render();
     }
 }

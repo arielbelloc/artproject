@@ -22,4 +22,9 @@ class RequestContext extends AbstractContext
             'query_params' => $this->queryParams,
         ];
     }
+    
+    public function getActionToService() : string 
+    {
+        return ucfirst($this->action);
+    }
 }

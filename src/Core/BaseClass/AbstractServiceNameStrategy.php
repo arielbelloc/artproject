@@ -1,6 +1,7 @@
 <?php
 namespace App\Core\BaseClass;
 
+use App\Core\Context\Context;
 use Psr\Container\ContainerInterface;
 
 class AbstractServiceNameStrategy
@@ -29,8 +30,10 @@ class AbstractServiceNameStrategy
      * 
      * @return mixed
      */
-    protected function getService(string $abstractName, string $type, string $default)
+    protected function getService(string $abstractName, string $default, string $type = null)
     {
+        $type = $type ?? Context::getContext()->getRequest()->getActionToService();
+        
         $serviceName = $this->getServiceName($abstractName, $type, $default);
 
         return $this->container->get($serviceName);

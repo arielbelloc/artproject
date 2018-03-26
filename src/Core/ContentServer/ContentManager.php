@@ -14,6 +14,6 @@ class ContentManager extends AbstractServiceNameStrategy
 
     public function getContent(string $contentType) : ContentInterface
     {
-        return $this->getService(self::CONTENT_SERVICE_ABSTRACT_NAME, $contentType, self::CONTENT_TYPE_DEFAULT);
+        return $this->getService(self::CONTENT_SERVICE_ABSTRACT_NAME, self::CONTENT_TYPE_DEFAULT);
     }
 }
