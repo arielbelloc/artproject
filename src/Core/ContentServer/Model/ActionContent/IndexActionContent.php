@@ -1,10 +1,12 @@
 <?php
 namespace App\Core\ContentServer\Model\ActionContent;
 
-use App\Core\ContentServer\Model\Content\ContentInterface;
+use App\Entity\ActionContent;
 
 class IndexActionContent extends AbstractActionContent
 {
+    protected $actionContent;
+    
     public function __construct(array $contentCollection)
     {
         $this->hydrate($contentCollection);
@@ -17,8 +19,9 @@ class IndexActionContent extends AbstractActionContent
         }
     }
     
-    protected function setProperty(ActionCon $content)
+    protected function setProperty(ActionContent $actionContent)
     {
-        $content->getType();
+        $propertyName = $actionContent->getPropery();
+        $this->actionContent->{$propertyName} = $actionContent->getContent();
     }
 }
