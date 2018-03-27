@@ -12,7 +12,7 @@ class ContentManager extends AbstractServiceNameStrategy
     const CONTENT_TYPE_BUNDLE = 'Bundle';
     const CONTENT_TYPE_DEFAULT = 'Default';
 
-    public function getContent(string $contentType) : ContentInterface
+    public function getContent() : ContentInterface
     {
         return $this->getService(self::CONTENT_SERVICE_ABSTRACT_NAME, self::CONTENT_TYPE_DEFAULT);
     }

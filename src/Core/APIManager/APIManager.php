@@ -15,7 +15,7 @@ class APIManager extends AbstractServiceNameStrategy
 
     const API_TYPE_DEFAULT = 'Default';
 
-    public function getAPI(string $apiType) : APIInterface
+    public function getAPI() : APIInterface
     {
         return $this->getService(self::API_MANAGER_SERVICE_ABSTRACT_NAME, self::API_TYPE_DEFAULT);
     }
