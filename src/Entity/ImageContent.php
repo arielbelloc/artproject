@@ -5,12 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Core\ContentServer\Repository\ImageContentRepository")
+ * @ORM\Entity(repositoryClass="App\Core\ContentServer\Repository\ContentRepository")
  * @ORM\Table(name="image_content")
  * 
  */
 class ImageContent extends Content
 {
+    const TYPE = 'image';
+    
     /**
      * @ORM\Column(type="string", length=100)
      * @ORM\Column(name="image_path")

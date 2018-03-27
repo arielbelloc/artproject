@@ -21,7 +21,7 @@ class Content
     private $uuid;
 
     /**
-     * @ORM\Column(type="string", length=100, name="description")
+     * @ORM\Column(type="string", length=250, name="description")
      */
     private $description;
     
@@ -45,18 +45,27 @@ class Content
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getDescription()
+    public function getDescription() : string 
     {
         return $this->description;
     }
 
     /**
-     * @param mixed $description
+     * @param $description
+     * @return Content
      */
-    public function setDescription($description)
+    public function setDescription($description) : Content
     {
         $this->description = $description;
+        
+        return $this;
+    }
+
+    public function getType() : string
+    {
+        $specificContent = get_class($this);
+        return $specificContent::TYPE;
     }
 }
