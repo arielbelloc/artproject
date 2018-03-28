@@ -6,22 +6,26 @@ use App\Entity\TextContent;
 use App\Tests\AbstractClass\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadGeneralTextContentFixture extends AbstractFixture
+class LoadTextContentFixture extends AbstractFixture
 {
     /**
      * @param ObjectManager $manager
      */
     public function load(ObjectManager $manager)
     {
+        if ($this->hasReference('TextContent')) {
+            return;
+        }
+        
         $textContent = new TextContent();
         $textContent
-            ->setValue('Value_TextContent_general')
-            ->setDescription('Description_TextContent_general')
-            ->setUUID('UUID_TextContent_general')
+            ->setValue('Value_TextContent')
+            ->setDescription('Description_TextContent')
+            ->setUUID('UUID_TextContent')
         ;
         $manager->persist($textContent);
 
-        $this->addReference('TextContent_general', $textContent);
+        $this->addReference('TextContent', $textContent);
         
         $manager->flush();
     }

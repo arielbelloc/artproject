@@ -3,7 +3,7 @@ namespace App\Tests\AbstractClass;
 
 use App\Tests\Component\FixtureManager;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Client;
 use Doctrine\ORM\Tools\SchemaTool;
 
 class AbstractFunctionalTestCase extends AbstractUnitTestCase
@@ -67,11 +67,6 @@ class AbstractFunctionalTestCase extends AbstractUnitTestCase
         return $this->getEntityManager()->getRepository($repositoryName);
     }
 
-    protected function getEntityManagerMockClass() : EntityManagerInterface
-    {
-        return \App\Tests\MockClass\EntityManager::getMock($this);
-    }
-
     protected static function getPrivateMethod($className, $methodName) : \ReflectionMethod
     {
         $class = new \ReflectionClass($className);
@@ -100,5 +95,21 @@ class AbstractFunctionalTestCase extends AbstractUnitTestCase
     {
         $methodInvoke = self::getPrivateProperty(get_class($object), $property);
         return $methodInvoke->getValue($object);
+    }
+
+    /**
+     * Creates a Client.
+     *
+     * @param array $options An array of options to pass to the createKernel class
+     * @param array $server  An array of server parameters
+     *
+     * @return Client A Client instance
+     */
+    protected static function createClient(array $options = array(), array $server = array()) : Client
+    {
+        $client = self::$container->get('test.client');
+        $client->setServerParameters($server);
+        
+        return $client;
     }
 }

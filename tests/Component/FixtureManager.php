@@ -72,6 +72,7 @@ class FixtureManager
      */
     public  function load(Fixture $fixture) {
         $fixture->setReferenceRepository($this->getReferenceRepository());
+        $fixture->loadDependencies($this->getEntityManager());
         $fixture->load($this->getEntityManager());
     }
 
