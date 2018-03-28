@@ -3,8 +3,8 @@
 namespace App\Tests\DataFixtures\Content;
 
 use App\Entity\TextContent;
+use App\Tests\AbstractClass\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Sas\TestBundle\DataFixtures\AbstractFixture;
 
 class LoadGeneralTextContentFixture extends AbstractFixture
 {

@@ -6,7 +6,7 @@ use App\Entity\ImageContent;
 use App\Entity\TextContent;
 use PHPUnit\Framework\TestCase;
 
-class ContextTest extends TestCase
+class Context_getTypeTest extends TestCase
 {
     public function testImageTypeSuccess()
     {

@@ -3,10 +3,10 @@ namespace App\Tests\AbstractClass;
 
 use App\Tests\Component\AssertExtension;
 use Doctrine\Common\DataFixtures\ReferenceRepository;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\Container;
 
-abstract class AbstractUnitTestCase extends KernelTestCase
+abstract class AbstractUnitTestCase extends WebTestCase
 {
     use AssertExtension;
 

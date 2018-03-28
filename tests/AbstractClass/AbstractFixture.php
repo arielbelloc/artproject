@@ -1,6 +1,5 @@
 <?php
-
-namespace Sas\TestBundle\DataFixtures;
+namespace App\Tests\AbstractClass;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
