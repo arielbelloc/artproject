@@ -3,6 +3,11 @@ namespace App\Core\RenderManager\ViewConstructor;
 
 use Twig\Environment;
 
+/**
+ * Class DefaultViewConstructor
+ * @package App\Core\RenderManager\ViewConstructor
+ * @author Ariel Belloc <arielbelloc@gmail.com>
+ */
 class DefaultViewConstructor implements ViewConstructorInterface
 {
     protected const TWIG_VIEW_NAME = 'base.html.twig';

@@ -4,6 +4,11 @@ namespace App\Core\RenderManager\ViewConstructor;
 use App\Core\ContentServer\ContentManager;
 use Twig\Environment;
 
+/**
+ * Class AbstractTwigViewConstructor
+ * @package App\Core\RenderManager\ViewConstructor
+ * @author Ariel Belloc <arielbelloc@gmail.com>
+ */
 abstract class AbstractTwigViewConstructor implements ViewConstructorInterface
 {
     protected const TWIG_VIEW_NAME = 'base.html.twig';

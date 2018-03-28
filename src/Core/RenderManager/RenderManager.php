@@ -4,6 +4,13 @@ namespace App\Core\RenderManager;
 use App\Core\BaseClass\AbstractServiceNameStrategy;
 use App\Core\RenderManager\ViewConstructor\ViewConstructorInterface;
 
+/**
+ * Class RenderManager
+ * Define la estrategia que va a renderizar el contenido
+ * 
+ * @package App\Core\RenderManager
+ * @author Ariel Belloc <arielbelloc@gmail.com>
+ */
 class RenderManager extends AbstractServiceNameStrategy
 {  
     private const VIEW_CONSTRUCTOR_SERVICE_ABSTRACT_NAME = 'App\Core\RenderManager\ViewConstructor\%sViewConstructor';
