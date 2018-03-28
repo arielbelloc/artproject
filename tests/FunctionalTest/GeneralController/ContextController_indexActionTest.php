@@ -3,9 +3,9 @@
 namespace App\Tests\FunctionalTest\GeneralController;
 
 use App\Tests\AbstractClass\AbstractFunctionalTestCase;
-use App\Tests\DataFixture\Content\LoadGeneralTextContentFixture;
+use App\Tests\DataFixtures\Content\LoadGeneralTextContentFixture;
 
-class GeneralController_indexActionTest extends AbstractFunctionalTestCase
+class ContextController_indexActionTest extends AbstractFunctionalTestCase
 {
     protected function setUp()
     {

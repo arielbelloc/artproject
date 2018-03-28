@@ -19,8 +19,8 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Core\APIManager\Controller\:
-        resource: '../src/Core/APIManager/Controller'
+    App\Controller\:
+        resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
@@ -38,5 +38,9 @@ services:
         
     App\Core\RenderManager\ViewConstructor\:
         resource: '../src/Core/RenderManager/ViewConstructor'
+        public: true
+            
+    App\Core\ContentServer\Content\:
+        resource: '../src/Core/ContentServer/Content'
         public: true
             

@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Tests\FunctionalTest\GeneralController;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class GeneralControllerTest extends WebTestCase
+class ContextControllerTest extends WebTestCase
 {
     public function testSomething()
     {
