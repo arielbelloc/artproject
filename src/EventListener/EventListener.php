@@ -10,18 +10,6 @@ class EventListener
     public function __construct(){}
     
     /**
-     * @param GetResponseEvent $event
-     *
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
-    public function onKernelRequest(GetResponseEvent $event)
-    {
-        $request = $event->getRequest();
-
-        return $request;
-    }
-
-    /**
      * Populo el objeto Context
      * 
      * @param FilterControllerEvent $event
