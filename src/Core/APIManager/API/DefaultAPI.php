@@ -3,6 +3,11 @@ namespace App\Core\APIManager\API;
 
 use App\Core\RenderManager\RenderManager;
 
+/**
+ * Class DefaultAPI
+ * @package App\Core\APIManager\API
+ * @author Ariel Belloc <arielbelloc@gmail.com>
+ */
 class DefaultAPI implements APIInterface
 {
     /**
