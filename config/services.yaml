@@ -43,4 +43,9 @@ services:
     App\Core\ContentServer\Content\:
         resource: '../src/Core/ContentServer/Content'
         public: true
-            
+        
+    # TODO: Pasar a service_test     
+    App\Core\ContentServer\Repository\:
+        resource: '../src/Core/ContentServer/Repository'
+        public: true
+        
