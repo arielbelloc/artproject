@@ -13,7 +13,7 @@ class ActionContent
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="integer")
      */
     private $id;
 

@@ -2,6 +2,8 @@
 namespace App\Core\ContentServer\Content;
 
 use App\Core\ContentServer\Model\ActionContent\ActionContentInterface;
+use App\Core\ContentServer\Repository\ActionContentRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class DefaultContent implements ContentInterface
 {
@@ -10,8 +12,15 @@ class DefaultContent implements ContentInterface
      */
     protected $actionContentModel;
 
-    public function __construct()
+    /**
+     * @var EntityManagerInterface
+     */
+    protected $actionContentRepository;
+    
+
+    public function __construct(ActionContentRepository $actionContentRepository)
     {
+        $this->actionContentRepository = $actionContentRepository;
         $this->setActionContentModel();
     }
 

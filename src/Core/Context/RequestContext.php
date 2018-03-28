@@ -27,4 +27,9 @@ class RequestContext extends AbstractContext
     {
         return ucfirst($this->action);
     }
+
+    public function getAction() : string
+    {
+        return $this->action;
+    }
 }
