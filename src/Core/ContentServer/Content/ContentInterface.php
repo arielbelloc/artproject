@@ -5,5 +5,5 @@ use App\Core\ContentServer\Model\ActionContent\ActionContentInterface;
 
 interface ContentInterface
 {
-    public function getContent() : ActionContentInterface;
+    public function getContent() : \stdClass;
 }
