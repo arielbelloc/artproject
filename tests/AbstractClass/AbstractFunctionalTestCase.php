@@ -67,36 +67,6 @@ class AbstractFunctionalTestCase extends AbstractUnitTestCase
         return $this->getEntityManager()->getRepository($repositoryName);
     }
 
-    protected static function getPrivateMethod($className, $methodName) : \ReflectionMethod
-    {
-        $class = new \ReflectionClass($className);
-        $method = $class->getMethod($methodName);
-        $method->setAccessible(true);
-
-        return $method;
-    }
-
-    protected static function getPrivateProperty($className, $property) : \ReflectionProperty
-    {
-        $class = new \ReflectionClass($className);
-        $property = $class->getProperty($property);
-        $property->setAccessible(true);
-
-        return $property;
-    }
-
-    public function callPrivateMethod($object, string $method, array $args = array())
-    {
-        $methodInvoke = self::getPrivateMethod(get_class($object), $method);
-        return $methodInvoke->invokeArgs($object, $args);
-    }
-
-    public function callPrivateProperty($object, string $property)
-    {
-        $methodInvoke = self::getPrivateProperty(get_class($object), $property);
-        return $methodInvoke->getValue($object);
-    }
-
     /**
      * Creates a Client.
      *
