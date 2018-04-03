@@ -21,11 +21,14 @@ class DefaultContent implements ContentInterface
     public function __construct(ActionContentRepository $actionContentRepository)
     {
         $this->actionContentRepository = $actionContentRepository;
-        $this->setActionContentModel();
     }
 
     public function getContent(): \stdClass
     {
+        if (!$this->actionContentModel) {
+            $this->setActionContentModel();
+        }
+        
         return $this->actionContentModel->getObjectContent();
     }
 
