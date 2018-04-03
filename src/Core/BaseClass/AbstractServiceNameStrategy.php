@@ -4,7 +4,7 @@ namespace App\Core\BaseClass;
 use App\Core\Context\Context;
 use Psr\Container\ContainerInterface;
 
-class AbstractServiceNameStrategy
+abstract class AbstractServiceNameStrategy
 {
     /**
      * @var ContainerInterface
@@ -34,8 +34,14 @@ class AbstractServiceNameStrategy
     {
         $type = $type ?? Context::getContext()->getRequest()->getActionToService();
         
-        $serviceName = $this->getServiceName($abstractName, $type, $default);
+        $serviceName = $this->getServiceName($abstractName, $default, $type);
 
+        if (!$this->container->has($serviceName))
+        {
+            /** TODO: Lanzar la excepción correcta */
+            throw new \InvalidArgumentException();
+        }
+        
         return $this->container->get($serviceName);
     }
 
@@ -47,7 +53,7 @@ class AbstractServiceNameStrategy
      * @param string $default
      * @return string
      */
-    protected function getServiceName(string $abstractName, string $type, string $default)
+    protected function getServiceName(string $abstractName, string $default, string $type)
     {
         $serviceName = sprintf($abstractName, $type);
         if (!$this->container->has($serviceName)) {
