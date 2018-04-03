@@ -9,9 +9,9 @@ class ContextControllerTest extends AbstractFunctionalTestCase
     public function testSomething()
     {
         $test = $this->getContainer()->get(ActionContentRepository::class)->findAll();
+
+        $client = $this->getClient();
         
-        $client = static::createClient();
-        $client->restart();
         $crawler = $client->request('GET', '/');
         
         $html = $client->getResponse()->getContent();

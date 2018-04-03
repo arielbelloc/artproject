@@ -17,7 +17,9 @@ class ContentController_indexActionTest extends AbstractFunctionalTestCase
 
     public function testSuccess()
     {
-        $client = static::createClient();
+        $test = $this->getContainer()->get(ActionContentRepository::class)->findAll();
+        
+        $client = $this->getClient();
         $crawler = $client->request('GET', '/');
         
         $this->assertSame(200, $client->getResponse()->getStatusCode());

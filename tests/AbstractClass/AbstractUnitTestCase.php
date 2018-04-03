@@ -7,25 +7,16 @@ use App\Tests\Component\AssertExtension;
 use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\Container;
+use Symfony\Bundle\FrameworkBundle\Client;
 
 abstract class AbstractUnitTestCase extends WebTestCase
 {
     use AssertExtension;
 
     /**
-     * @var string
+     * @var Client
      */
-    private static $_environment = 'test';
-
-    /**
-     * @var Container
-     */
-    protected static $container;
-
-    /**
-     * @var Kernel
-     */
-    protected static $kernel2;
+    protected static $client;
 
     /**
      * @var  ReferenceRepository
@@ -52,11 +43,7 @@ abstract class AbstractUnitTestCase extends WebTestCase
 
     protected static function setGeneralProperties()
     {
-        if (!self::$container) {
-            self::$kernel2 = static::createKernel(array('environment' => self::$_environment));
-            self::$kernel2->boot();
-            self::$container = self::$kernel2->getContainer();
-        }
+        self::$client = static::createClient();
     }
     
     /**
@@ -64,6 +51,11 @@ abstract class AbstractUnitTestCase extends WebTestCase
      */
     public function getContainer() : Container
     {
-        return self::$container;
+        return self::$client->getContainer();
+    }
+    
+    protected function getClient() : Client
+    {
+        return self::$client;
     }
 }

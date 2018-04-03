@@ -23,8 +23,9 @@ class ContentController extends Controller
      */
     public function index(APIManager $apiManager)
     {
-        return new Response($apiManager
-            ->getAPI()
-            ->getResponse());
+        $api = $apiManager->getAPI();
+        $response = $api->getResponse();
+        
+        return new Response($response);
     }
 }

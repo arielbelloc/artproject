@@ -3,7 +3,6 @@ namespace App\Tests\AbstractClass;
 
 use App\Tests\Component\FixtureManager;
 use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Client;
 use Doctrine\ORM\Tools\SchemaTool;
 
 class AbstractFunctionalTestCase extends AbstractUnitTestCase
@@ -21,31 +20,26 @@ class AbstractFunctionalTestCase extends AbstractUnitTestCase
     public static function setUpBeforeClass()
     {
         parent::setUpBeforeClass();
-        self::setEntityManager();
         self::createSchema();
     }
     
     protected function getEntityManager()
     {
-        return self::$em;
+        return $this->getContainer()->get('doctrine')->getManager();
     }
 
-    protected static function setEntityManager()
-    {
-        self::$em = self::$em ?? self::$container->get('doctrine')->getManager();
-    }
-    
     protected static function createSchema()
     {
-        if (!self::$schemaIsCreated) {
-            $schemaTool = new SchemaTool(self::$em);
-            $metadata = self::$em->getMetadataFactory()->getAllMetadata();
-            // Drop and recreate tables for all entities
-            $schemaTool->dropSchema($metadata);
-            $schemaTool->createSchema($metadata);
+        $em = self::$client->getContainer()
+            ->getContainer()
+            ->get('doctrine')
+            ->getManager();
         
-            self::$schemaIsCreated = true;
-        }
+        $schemaTool = new SchemaTool($em);
+        $metadata = $em->getMetadataFactory()->getAllMetadata();
+        // Drop and recreate tables for all entities
+        $schemaTool->dropSchema($metadata);
+        $schemaTool->createSchema($metadata);
     }
     
     protected function tearDown() {
@@ -95,21 +89,5 @@ class AbstractFunctionalTestCase extends AbstractUnitTestCase
     {
         $methodInvoke = self::getPrivateProperty(get_class($object), $property);
         return $methodInvoke->getValue($object);
-    }
-
-    /**
-     * Creates a Client.
-     *
-     * @param array $options An array of options to pass to the createKernel class
-     * @param array $server  An array of server parameters
-     *
-     * @return Client A Client instance
-     */
-    protected static function createClient(array $options = array(), array $server = array()) : Client
-    {
-        $client = self::$container->get('test.client');
-        $client->setServerParameters($server);
-        
-        return $client;
     }
 }
