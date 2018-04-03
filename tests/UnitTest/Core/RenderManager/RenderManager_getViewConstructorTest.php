@@ -13,20 +13,20 @@ class RenderManager_getViewConstructorTest extends AbstractUnitTestCase
     {
         Context::getContext()->hydrate(['request' => ['action' => 'index']]);
         
-        $apiManager = new RenderManager($this->getContainer());
-        $apiStrategy = $apiManager->getViewConstructor();
+        $renderManager = new RenderManager($this->getContainer());
+        $renderStrategy = $renderManager->getViewConstructor();
 
-        $this->assertInstanceOf(IndexViewConstructor::class, $apiStrategy);
+        $this->assertInstanceOf(IndexViewConstructor::class, $renderStrategy);
     }
 
     public function testDefaultStrategySuccess()
     {
         Context::getContext()->hydrate(['request' => ['action' => 'test_action']]);
 
-        $apiManager = new RenderManager($this->getContainer());
-        $apiStrategy = $apiManager->getViewConstructor();
+        $renderManager = new RenderManager($this->getContainer());
+        $renderStrategy = $renderManager->getViewConstructor();
 
-        $this->assertNotInstanceOf(IndexViewConstructor::class, $apiStrategy);
-        $this->assertInstanceOf(DefaultViewConstructor::class, $apiStrategy);
+        $this->assertNotInstanceOf(IndexViewConstructor::class, $renderStrategy);
+        $this->assertInstanceOf(DefaultViewConstructor::class, $renderStrategy);
     }
 }
