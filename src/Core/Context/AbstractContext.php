@@ -4,13 +4,13 @@ namespace App\Core\Context;
 
 abstract class AbstractContext implements ContextInterface
 {
-    public function jsonSerialize() : string
+    public function getJsonSerialize() : string
     {
-        return json_encode($this->arraySerialize());
+        return json_encode($this->getArraySerialize());
     }
 
-    public function objectSerialize() : \stdClass
+    public function getObjectSerialize() : \stdClass
     {
-        return json_decode($this->jsonSerialize());
+        return json_decode($this->getJsonSerialize());
     }
 }

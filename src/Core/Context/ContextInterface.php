@@ -11,9 +11,9 @@ interface ContextInterface
 {
     public function hydrate(array $data);
     
-    public function jsonSerialize() : string;
+    public function getJsonSerialize() : string;
     
-    public function arraySerialize() : array;
+    public function getArraySerialize() : array;
     
-    public function objectSerialize() : \stdClass;
+    public function getObjectSerialize() : \stdClass;
 }

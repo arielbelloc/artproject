@@ -32,7 +32,7 @@ abstract class AbstractServiceNameStrategy
      */
     protected function getService(string $abstractName, string $default, string $type = null)
     {
-        $type = $type ?? Context::getContext()->getRequest()->getActionToService();
+        $type = $type ?? Context::getContext()->request()->getActionToService();
         
         $serviceName = $this->getServiceName($abstractName, $default, $type);
 

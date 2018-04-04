@@ -10,7 +10,6 @@ class Context extends AbstractContext
     protected $request;
     protected $response;
     
-    
     private function __construct(){
         $this->user = new UserContext();
         $this->owner = new OwnerContext();
@@ -29,68 +28,49 @@ class Context extends AbstractContext
     public function hydrate(array $data)
     {
         if (isset($data['request'])) {
-            $this->hydrateRequestContext($data['request']);
+            $this->request()->hydrate($data['request']);
         }
 
         if (isset($data['owner'])) {
-            $this->hydrateOwnerContext($data['owner']);
+            $this->owner()->hydrate($data['owner']);
         }
 
         if (isset($data['user'])) {
-            $this->hydrateUserContext($data['user']);
+            $this->user()->hydrate($data['user']);
         }
 
         if (isset($data['response'])) {
-            $this->hydrateResponseContext($data['response']);
+            $this->response()->hydrate($data['response']);
         }
     }
     
-    public function hydrateRequestContext(array $data)
-    {
-        $this->request->hydrate($data);
-    }
     
-    public function hydrateOwnerContext(array $data)
-    {
-        $this->owner->hydrate($data);
-    }
-
-    public function hydrateUserContext(array $data)
-    {
-        $this->user->hydrate($data);
-    }
-    
-    public function hydrateResponseContext(array $data)
-    {
-        $this->response->hydrate($data);
-    }
-    
-    public function arraySerialize() : array
+    public function getArraySerialize() : array
     {
         return [
-            'request' => $this->request->arraySerialize(),
-            'owner' => $this->owner->arraySerialize(),
-            'user' => $this->user->arraySerialize(),
-            'response' => $this->response->arraySerialize(),
+            'request' => $this->request->getArraySerialize(),
+            'owner' => $this->owner->getArraySerialize(),
+            'user' => $this->user->getArraySerialize(),
+            'response' => $this->response->getArraySerialize(),
         ];
     }
 
-        public function getUser() : UserContext
+    public function user() : UserContext
     {
         return $this->user;
     }
 
-    public function getOwner() : OwnerContext
+    public function owner() : OwnerContext
     {
         return $this->owner;
     }
 
-    public function getRequest() : RequestContext
+    public function request() : RequestContext
     {
         return $this->request;
     }
 
-    public function getResponse() : ResponseContext
+    public function response() : ResponseContext
     {
         return $this->response;
     }

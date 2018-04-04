@@ -5,7 +5,7 @@ class ResponseContext extends AbstractContext
 {
     public function hydrate(array $data){}
     
-    public function arraySerialize() : array
+    public function getArraySerialize() : array
     {
         return [];
     }

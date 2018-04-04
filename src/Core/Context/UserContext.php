@@ -12,7 +12,7 @@ class UserContext extends AbstractContext
         $this->username = $data['username'] ?? null;
     }
     
-    public function arraySerialize() : array
+    public function getArraySerialize() : array
     {
         return [
             'id' => $this->id,
