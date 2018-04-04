@@ -28,12 +28,12 @@ class EventListener
                 'query_params' => $queryParams,
             ],
             'owner' => [
-                'id' => 1,
-                'username' => 'Default',
+                'id' => null,
+                'username' => 'anonymous_owner',
             ],
             'user' => [
                 'id' => null,
-                'username' => 'anonymous',
+                'username' => 'anonymous_user',
             ],
         ]);
     }
