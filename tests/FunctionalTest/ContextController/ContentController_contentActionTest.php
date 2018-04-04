@@ -3,25 +3,19 @@ namespace App\Tests\FunctionalTest\ContentController;
 
 use App\Tests\AbstractClass\AbstractFunctionalTestCase;
 use App\Tests\DataFixtures\Content\AddActionContentContentFixture;
+use App\Tests\DataFixtures\Content\LoadTextContentFixture;
 
-class ContentController_indexActionTest extends AbstractFunctionalTestCase
+class ContentController_contentActionTest extends AbstractFunctionalTestCase
 {
-    protected function setUp()
+    public function testTextContentSuccess()
     {
-        parent::setUp();
-        $this->fixtureManager()->loadCollection([
-            new AddActionContentContentFixture('index', 'text', 'TextContent'),
-            new AddActionContentContentFixture('index', 'image', 'ImageContent')
-        ]);
-    }
-
-    public function testSuccess()
-    {
+        $this->fixtureManager()->load(new LoadTextContentFixture());
+        
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/content/UUID_TextContent');
         
         $this->assertSame(200, $client->getResponse()->getStatusCode());
         $this->assertSame(1, $crawler->filter('body:contains("Value_TextContent")')->count());
-        $this->assertSame(1, $crawler->filter('body:contains("ImagePath_ImageContent")')->count());
+        $html = $client->getResponse()->getContent();
     }
 }
