@@ -10,4 +10,10 @@ class ImageContent extends AbstractContent
     {
         return $this->contentEntity->getImagePath();
     }
+
+    public function getArraySerialize() : array
+    {
+        $tempArray = parent::getArraySerialize();
+        return array_merge($tempArray, ['imagePath' => $this->getImagePath()]);
+    }
 }

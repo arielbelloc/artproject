@@ -2,6 +2,7 @@
 namespace App\Core\ContentServer\Model\Content;
 
 use App\Entity\Content;
+use App\Util\Parser;
 
 abstract class AbstractContent
 {
@@ -34,4 +35,19 @@ abstract class AbstractContent
     {
         return $this->contentEntity->getType();
     }
+
+    public function getArraySerialize() : array
+    {
+        return [
+            'uuid' => $this->getUUID(),
+            'type' => $this->getType(),
+        ];
+    }
+
+    public function getObjectContent() : \stdClass
+    {
+        $actionContent = Parser::arrayToObject($this->getArraySerialize());
+        return  $actionContent;
+    }
+    
 }

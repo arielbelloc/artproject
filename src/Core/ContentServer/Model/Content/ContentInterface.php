@@ -8,4 +8,6 @@ interface ContentInterface
     
     public function getUUID() : string;
     public function getType() : string;
+    public function getArraySerialize() : array;
+    public function getObjectSerialize() : \stdClass;
 }

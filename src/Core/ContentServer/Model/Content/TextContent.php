@@ -10,4 +10,10 @@ class TextContent extends AbstractContent
     {
         return $this->contentEntity->getValue();
     }
+
+    public function getArraySerialize() : array
+    {
+        $tempArray = parent::getArraySerialize();
+        return array_merge($tempArray, ['value' => $this->getValue()]);
+    }
 }

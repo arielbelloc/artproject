@@ -7,8 +7,14 @@
 
 namespace App\Core\ContentServer\Repository;
 
+use App\Entity\Content;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class ContentRepository
+class ContentRepository extends ServiceEntityRepository
 {
-
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Content::class);
+    }
 }
