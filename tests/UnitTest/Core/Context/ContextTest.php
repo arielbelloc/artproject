@@ -47,7 +47,7 @@ class ContextTest extends TestCase
             
         ]);
 
-        $jsonSerialize = Context::getContext()->jsonSerialize();
+        $jsonSerialize = Context::getContext()->getJsonSerialize();
 
         $this->assertEquals(
             '{"request":{"action":null,"request_params":{"test_request_params_key":"test_request_params_value"},"query_params":{"test_query_params_key_01":"test_query_params_value_01","test_query_params_key_02":"test_query_params_value_02"}},"owner":{"id":73,"username":"test_owner_username"},"user":{"id":3,"username":"test_username"},"response":[]}',
@@ -65,7 +65,7 @@ class ContextTest extends TestCase
             ]
         ]);
         
-        $jsonSerialize = Context::getContext()->jsonSerialize();
+        $jsonSerialize = Context::getContext()->getJsonSerialize();
             
         $this->assertEquals(
             '{"request":{"action":null,"request_params":[],"query_params":{"test_query_params_key":"test_query_params_value"}},"owner":{"id":null,"username":null},"user":{"id":null,"username":null},"response":[]}',
@@ -84,7 +84,7 @@ class ContextTest extends TestCase
             ]
         ]);
 
-        $jsonSerialize = Context::getContext()->jsonSerialize();
+        $jsonSerialize = Context::getContext()->getJsonSerialize();
 
         $this->assertEquals(
             '{"request":{"action":null,"request_params":[],"query_params":{"test_query_params_key_01":"test_query_params_value_01","test_query_params_key_02":"test_query_params_value_02"}},"owner":{"id":null,"username":null},"user":{"id":null,"username":null},"response":[]}',
