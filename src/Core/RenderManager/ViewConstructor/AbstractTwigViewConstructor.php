@@ -11,7 +11,7 @@ use Twig\Environment;
  */
 abstract class AbstractTwigViewConstructor implements ViewConstructorInterface
 {
-    protected const TWIG_VIEW_NAME = 'base.html.twig';
+    protected $twigViewName = 'base.html.twig';
 
     /**
      * @var Environment
@@ -49,7 +49,6 @@ abstract class AbstractTwigViewConstructor implements ViewConstructorInterface
      */
     protected function getRender(array $viewData) : string 
     {
-        $childClass = get_class($this);
-        return $this->twig->render($childClass::TWIG_VIEW_NAME, $viewData);
+        return $this->twig->render($this->twigViewName, $viewData);
     }
 }

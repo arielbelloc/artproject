@@ -8,7 +8,7 @@ namespace App\Core\RenderManager\ViewConstructor;
  */
 class ContentViewConstructor extends AbstractTwigViewConstructor
 {
-    protected const TWIG_VIEW_NAME = 'text_content.html.twig';
+    protected $twigViewName = 'text_content.html.twig';
 
     protected function getContentData() : array
     {
