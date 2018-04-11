@@ -2,7 +2,7 @@
 namespace App\Core\RenderManager;
 
 use App\Core\BaseClass\AbstractServiceNameStrategy;
-use App\Core\RenderManager\ViewConstructor\Content\ViewConstructorInterface;
+use App\Core\RenderManager\ViewConstructor\ViewConstructorInterface;
 
 /**
  * Class RenderManager
@@ -16,7 +16,7 @@ class RenderManager extends AbstractServiceNameStrategy
     private const VIEW_CONSTRUCTOR_SERVICE_ABSTRACT_NAME = 'App\Core\RenderManager\ViewConstructor\%s\%sViewConstructor';
     
     const VIEW_CONSTRUCTOR_TYPE_INDEX = 'Index';
-    const VIEW_CONSTRUCTOR_TYPE_DEFAULT = 'Default';
+    const VIEW_CONSTRUCTOR_TYPE_DEFAULT = 'App\Core\RenderManager\ViewConstructor\DefaultViewConstructor';
 
     public function getViewConstructor() : ViewConstructorInterface
     {

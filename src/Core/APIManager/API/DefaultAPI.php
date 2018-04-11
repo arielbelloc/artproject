@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\APIManager\API\Content;
+namespace App\Core\APIManager\API;
 
 use App\Core\RenderManager\RenderManager;
 

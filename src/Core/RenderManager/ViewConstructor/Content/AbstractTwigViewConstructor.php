@@ -2,6 +2,7 @@
 namespace App\Core\RenderManager\ViewConstructor\Content;
 
 use App\Core\ContentServer\ContentManager;
+use App\Core\RenderManager\ViewConstructor\ViewConstructorInterface;
 use Twig\Environment;
 
 /**

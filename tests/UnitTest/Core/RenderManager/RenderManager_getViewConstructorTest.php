@@ -3,7 +3,7 @@ namespace App\Tests\UnitTest\Core\RenderManager;
 
 use App\Core\Context\Context;
 use App\Core\RenderManager\RenderManager;
-use App\Core\RenderManager\ViewConstructor\Content\DefaultViewConstructor;
+use App\Core\RenderManager\ViewConstructor\DefaultViewConstructor;
 use App\Core\RenderManager\ViewConstructor\Content\IndexViewConstructor;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 

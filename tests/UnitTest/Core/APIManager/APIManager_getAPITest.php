@@ -1,8 +1,8 @@
 <?php
 namespace App\Tests\UnitTest\Core\APIManager;
 
-use App\Core\APIManager\API\Content\DefaultAPI;
 use App\Core\APIManager\API\Content\IndexAPI;
+use App\Core\APIManager\API\DefaultAPI;
 use App\Core\APIManager\APIManager;
 use App\Core\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;

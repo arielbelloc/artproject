@@ -1,6 +1,7 @@
 <?php
 namespace App\Core\ContentServer\Content\Content;
 
+use App\Core\ContentServer\Content\ContentInterface;
 use App\Core\ContentServer\Factory\ContentFactory;
 use App\Core\ContentServer\Repository\ContentRepository;
 use App\Core\Context\Context;

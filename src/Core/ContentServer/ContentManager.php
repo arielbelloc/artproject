@@ -2,7 +2,7 @@
 namespace App\Core\ContentServer;
 
 use App\Core\BaseClass\AbstractServiceNameStrategy;
-use App\Core\ContentServer\Content\Content\ContentInterface;
+use App\Core\ContentServer\Content\ContentInterface;
 
 class ContentManager extends AbstractServiceNameStrategy
 {
@@ -10,13 +10,13 @@ class ContentManager extends AbstractServiceNameStrategy
 
     const CONTENT_TYPE_IMAGE = 'Image';
     const CONTENT_TYPE_BUNDLE = 'Bundle';
-    const CONTENT_TYPE_DEFAULT = 'Default';
+    const CONTENT_DEFAULT = 'App\Core\ContentServer\Content\DefaultContent';
 
     public function getContent() : ContentInterface
     {
         return $this->getService(
             self::CONTENT_SERVICE_ABSTRACT_NAME,
-            self::CONTENT_TYPE_DEFAULT
+            self::CONTENT_DEFAULT
         );
     }
 }

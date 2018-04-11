@@ -55,7 +55,7 @@ abstract class AbstractServiceNameStrategy
         $namespace = Context::getContext()->request()->getNamespaceToService();
         $serviceName = sprintf($abstractName, $namespace, $type);
         if (!$this->container->has($serviceName)) {
-            $serviceName = $serviceName = sprintf($abstractName, $namespace, $default);
+            $serviceName =  $default;
         }
         
         return $serviceName;

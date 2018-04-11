@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\ContentServer\Content\Content;
+namespace App\Core\ContentServer\Content;
 
 interface ContentInterface
 {

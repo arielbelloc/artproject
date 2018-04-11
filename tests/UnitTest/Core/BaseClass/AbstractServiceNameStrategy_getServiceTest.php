@@ -1,7 +1,7 @@
 <?php
 namespace App\Tests\UnitTest\Core\APIManager;
 
-use App\Core\APIManager\API\Content\DefaultAPI;
+use App\Core\APIManager\API\DefaultAPI;
 use App\Core\APIManager\API\Content\IndexAPI;
 use App\Core\BaseClass\AbstractServiceNameStrategy;
 use App\Core\Context\Context;
@@ -18,7 +18,7 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
             'getService',
             [
                 'App\Core\APIManager\API\%s\%sAPI',
-                'Default'
+                'App\Core\APIManager\API\DefaultAPI'
             ]
         );
 
@@ -34,7 +34,7 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
             'getService',
             [
                 'App\Core\APIManager\API\%s\%sAPI',
-                'Default'
+                'App\Core\APIManager\API\DefaultAPI'
             ]
         );
 
