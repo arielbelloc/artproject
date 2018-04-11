@@ -11,36 +11,19 @@ use Symfony\Component\Routing\Annotation\Route;
  * Content Controller
  * Recibe todas las peticiones de las webs que muestran contenidos
  *
- * @Route("/")
+ * @Route("/admin/{$userName}")
  *
  * @author Ariel Belloc <arielbelloc@gmail.com>
  */
-class ContentController extends Controller
+class AdminContentController extends Controller
 {
     /**
      * @Route("/", methods={"GET"})
      * @param APIManager $apiManager
      * @return mixed
      */
-    public function index(APIManager $apiManager)
+    public function addContent(APIManager $apiManager)
     {
-        return new Response($apiManager
-            ->getAPI()
-            ->getResponse());
-    }
-
-    /**
-     * @Route("/content/{contentUUId}", methods={"GET"})
-     * @param APIManager $apiManager
-     * @param string $contentUUId
-     * @return mixed
-     */
-    public function content(string $contentUUId, APIManager $apiManager)
-    {
-        Context::getContext()->request()->payload()->add([
-            'content_uuid' => $contentUUId
-        ]);
-        
         return new Response($apiManager
             ->getAPI()
             ->getResponse());
