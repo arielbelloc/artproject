@@ -1,8 +1,8 @@
 <?php
 namespace App\Tests\UnitTest\Core\APIManager;
 
-use App\Core\APIManager\API\DefaultAPI;
-use App\Core\APIManager\API\IndexAPI;
+use App\Core\APIManager\API\Content\DefaultAPI;
+use App\Core\APIManager\API\Content\IndexAPI;
 use App\Core\BaseClass\AbstractServiceNameStrategy;
 use App\Core\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
@@ -11,29 +11,13 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
 {
     public function testSuccess()
     {
+        Context::getContext()->hydrate(['request' => ['action' => 'index', 'namespace' => 'Content']]);
         $stub = $this->getMockForAbstractClass(AbstractServiceNameStrategy::class, [$this->getContainer()]);
         $service = $this->callPrivateMethod(
             $stub,
             'getService',
             [
-                'App\Core\APIManager\API\%sAPI',
-                'Default',
-                'Index'
-            ]
-        );
-
-        $this->assertInstanceOf(IndexAPI::class, $service);
-    }
-    
-    public function testWithContextSuccess()
-    {
-        Context::getContext()->hydrate(['request' => ['action' => 'index']]);
-        $stub = $this->getMockForAbstractClass(AbstractServiceNameStrategy::class, [$this->getContainer()]);
-        $service = $this->callPrivateMethod(
-            $stub,
-            'getService',
-            [
-                'App\Core\APIManager\API\%sAPI',
+                'App\Core\APIManager\API\%s\%sAPI',
                 'Default'
             ]
         );
@@ -43,12 +27,13 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
 
     public function testDefaultSuccess()
     {
+        Context::getContext()->hydrate(['request' => ['action' => 'non_exist_action', 'namespace' => 'Content']]);
         $stub = $this->getMockForAbstractClass(AbstractServiceNameStrategy::class, [$this->getContainer()]);
         $service = $this->callPrivateMethod(
             $stub,
             'getService',
             [
-                'App\Core\APIManager\API\%sAPI',
+                'App\Core\APIManager\API\%s\%sAPI',
                 'Default'
             ]
         );
@@ -65,8 +50,7 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
                 'getService',
                 [
                     'test_not_exist_service_abstract',
-                    'test_not_exist_service_default',
-                    'test_not_exist_service_type'
+                    'test_not_exist_service_default'
                 ]
             );
             

@@ -3,15 +3,15 @@ namespace App\Tests\UnitTest\Core\RenderManager;
 
 use App\Core\Context\Context;
 use App\Core\RenderManager\RenderManager;
-use App\Core\RenderManager\ViewConstructor\DefaultViewConstructor;
-use App\Core\RenderManager\ViewConstructor\IndexViewConstructor;
+use App\Core\RenderManager\ViewConstructor\Content\DefaultViewConstructor;
+use App\Core\RenderManager\ViewConstructor\Content\IndexViewConstructor;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 
 class RenderManager_getViewConstructorTest extends AbstractUnitTestCase
 {
     public function testIndexStrategySuccess()
     {
-        Context::getContext()->hydrate(['request' => ['action' => 'index']]);
+        Context::getContext()->hydrate(['request' => ['action' => 'index', 'namespace' => 'content']]);
         
         $renderManager = new RenderManager($this->getContainer());
         $renderStrategy = $renderManager->getViewConstructor();
@@ -21,7 +21,7 @@ class RenderManager_getViewConstructorTest extends AbstractUnitTestCase
 
     public function testDefaultStrategySuccess()
     {
-        Context::getContext()->hydrate(['request' => ['action' => 'test_action']]);
+        Context::getContext()->hydrate(['request' => ['action' => 'test_action', 'namespace' => 'content']]);
 
         $renderManager = new RenderManager($this->getContainer());
         $renderStrategy = $renderManager->getViewConstructor();
