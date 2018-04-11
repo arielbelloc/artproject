@@ -3,7 +3,6 @@ namespace App\EventListener;
 
 use App\Core\Context\Context;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class EventListener
 {
@@ -17,6 +16,7 @@ class EventListener
     public function onKernelController(FilterControllerEvent $event)
     {
         $action = $event->getController()[1];
+        $namespace = $this->getNamespace($event);
         $requestParams = $event->getRequest()->request->all();
         $queryParams = $event->getRequest()->query->all();
 
@@ -24,6 +24,7 @@ class EventListener
         Context::getContext()->hydrate([
             'request' => [
                 'action' => $action,
+                'namespace' => $namespace,
                 'request_params' => $requestParams,
                 'query_params' => $queryParams,
             ],
@@ -38,5 +39,13 @@ class EventListener
         ]);
     }
 
-
+    private function getNamespace(FilterControllerEvent $event) : string 
+    {
+        $controller = $event->getController()[0];
+        $controllerName = get_class($controller);
+        $namespace = str_replace('App\Controller\\', '', $controllerName);
+        $namespace = str_replace('Controller', '', $namespace);
+        
+        return $namespace;
+    }
 }
