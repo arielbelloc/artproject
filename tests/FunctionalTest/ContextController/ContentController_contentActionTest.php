@@ -4,7 +4,6 @@ namespace App\Tests\FunctionalTest\ContentController;
 use App\Entity\Content;
 use App\Tests\AbstractClass\AbstractFunctionalTestCase;
 use App\Tests\DataFixtures\Content\LoadImageContentFixture;
-use App\Tests\DataFixtures\Content\LoadTextContentFixture;
 
 class ContentController_contentActionTest extends AbstractFunctionalTestCase
 {
