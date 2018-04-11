@@ -4,6 +4,7 @@ namespace App\Core\Context;
 class RequestContext extends AbstractContext
 {
     private $action;
+    private $namespace;
     private $requestParams;
     private $queryParams;
     private $payload;
@@ -11,6 +12,7 @@ class RequestContext extends AbstractContext
     public function hydrate(array $data)
     {
         $this->action = $data['action'] ?? null;
+        $this->namespace = $data['namespace'] ?? null;
         $this->requestParams = $data['request_params'] ?? [];
         $this->queryParams = $data['query_params'] ?? [];
         $this->payload = new Payload();
@@ -28,6 +30,16 @@ class RequestContext extends AbstractContext
     public function getActionToService() : string 
     {
         return ucfirst($this->action);
+    }
+
+    public function getNamespace() : string
+    {
+        return $this->namespace;
+    }
+
+    public function getNamespaceToService() : string
+    {
+        return ucfirst($this->namespace);
     }
 
     public function getAction() : string

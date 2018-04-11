@@ -25,16 +25,13 @@ abstract class AbstractServiceNameStrategy
      * Return the service from a abstract name. 
      * 
      * @param string $abstractName
-     * @param string $type
      * @param string $default
      * 
      * @return mixed
      */
-    protected function getService(string $abstractName, string $default, string $type = null)
+    protected function getService(string $abstractName, string $default) 
     {
-        $type = $type ?? Context::getContext()->request()->getActionToService();
-        
-        $serviceName = $this->getServiceName($abstractName, $default, $type);
+        $serviceName = $this->getServiceName($abstractName, $default);
 
         if (!$this->container->has($serviceName))
         {
@@ -49,15 +46,16 @@ abstract class AbstractServiceNameStrategy
      * Return the service name from a abstract name.
      * 
      * @param string $abstractName
-     * @param string $type
      * @param string $default
      * @return string
      */
-    protected function getServiceName(string $abstractName, string $default, string $type)
+    protected function getServiceName(string $abstractName, string $default) : string 
     {
-        $serviceName = sprintf($abstractName, $type);
+        $type = Context::getContext()->request()->getActionToService();
+        $namespace = Context::getContext()->request()->getNamespaceToService();
+        $serviceName = sprintf($abstractName, $namespace, $type);
         if (!$this->container->has($serviceName)) {
-            $serviceName = $serviceName = sprintf($abstractName, $default);
+            $serviceName = $serviceName = sprintf($abstractName, $namespace, $default);
         }
         
         return $serviceName;

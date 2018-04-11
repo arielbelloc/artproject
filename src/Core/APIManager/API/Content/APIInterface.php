@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\APIManager\API;
+namespace App\Core\APIManager\API\Content;
 
 /**
  * Interface APIInterface

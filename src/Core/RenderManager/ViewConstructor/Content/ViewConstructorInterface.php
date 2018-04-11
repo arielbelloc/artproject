@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\RenderManager\ViewConstructor;
+namespace App\Core\RenderManager\ViewConstructor\Content;
 
 /**
  * Interface ViewConstructorInterface

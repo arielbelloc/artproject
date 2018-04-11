@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\ContentServer\Content;
+namespace App\Core\ContentServer\Content\Content;
 
 use App\Core\ContentServer\Model\ActionContent\IndexActionContent;
 use App\Core\Context\Context;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\RenderManager\ViewConstructor;
+namespace App\Core\RenderManager\ViewConstructor\Content;
 
 use App\Core\ContentServer\ContentManager;
 use Twig\Environment;

@@ -1,12 +1,12 @@
 <?php
-namespace App\Core\RenderManager\ViewConstructor;
+namespace App\Core\RenderManager\ViewConstructor\Content;
 
 /**
  * Class IndexViewConstructor
  * @package App\Core\RenderManager\ViewConstructor
  * @author Ariel Belloc <arielbelloc@gmail.com>
  */
-class ContentViewConstructor extends AbstractTwigViewConstructor
+class AddContentViewConstructor extends AbstractTwigViewConstructor
 {
     protected $twigViewName = '%s_content.html.twig';
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\ContentServer\Content;
+namespace App\Core\ContentServer\Content\Content;
 
 class DefaultContent implements ContentInterface
 {
