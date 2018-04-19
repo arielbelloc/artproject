@@ -27,7 +27,7 @@ class Content
     /**
      * @return string
      */
-    public function getUUID() : string 
+    public function getUUID() : ?string 
     {
         return $this->uuid;
     }
@@ -46,7 +46,7 @@ class Content
     /**
      * @return string
      */
-    public function getDescription() : string 
+    public function getDescription() : ?string 
     {
         return $this->description;
     }
