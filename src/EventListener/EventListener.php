@@ -19,7 +19,7 @@ class EventListener
         $namespace = $this->getNamespace($event);
         $requestParams = $event->getRequest()->request->all();
         $queryParams = $event->getRequest()->query->all();
-
+        
         /** TODO: Quitar mock */
         Context::getContext()->hydrate([
             'request' => [
@@ -27,6 +27,7 @@ class EventListener
                 'namespace' => $namespace,
                 'request_params' => $requestParams,
                 'query_params' => $queryParams,
+                'request_object' => $event->getRequest(),
             ],
             'owner' => [
                 'id' => null,
