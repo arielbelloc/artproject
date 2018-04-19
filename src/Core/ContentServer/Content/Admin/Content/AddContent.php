@@ -1,10 +1,11 @@
 <?php
-namespace App\Core\ContentServer\Admin\Content;
+namespace App\Core\ContentServer\Content\Admin\Content;
 
 use App\Core\ContentServer\Content\ContentInterface;
 use App\Core\ContentServer\Factory\ContentFactory;
 use App\Core\ContentServer\Repository\ContentRepository;
 use App\Core\Context\Context;
+use Symfony\Component\Form\FormFactoryInterface;
 
 class AddContent implements ContentInterface
 {
@@ -12,15 +13,27 @@ class AddContent implements ContentInterface
     protected $contentModel;
     protected $contentFactory;
 
-    public function __construct(ContentRepository $repository, ContentFactory $contentFactory)
+    /**
+     * @var FormFactoryInterface
+     */
+    protected $formFactory;
+    
+    public function __construct(ContentRepository $repository, ContentFactory $contentFactory, FormFactoryInterface $formFactory)
     {
         $this->repository = $repository;
-        $this->contentFactory = $contentFactory; 
+        $this->contentFactory = $contentFactory;
+        $this->formFactory = $formFactory;
+
     }
     
     public function addContent()
+    {        
+        $this->checkForm();
+    }
+    
+    protected function checkForm()
     {
-        $this->contentFactory->getModel();
+        return true;
     }
 
     protected function setContentModel()

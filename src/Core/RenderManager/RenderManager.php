@@ -20,9 +20,11 @@ class RenderManager extends AbstractServiceNameStrategy
 
     public function getViewConstructor() : ViewConstructorInterface
     {
-        return $this->getService(
+        $service = $this->getService(
             self::VIEW_CONSTRUCTOR_SERVICE_ABSTRACT_NAME,
             self::VIEW_CONSTRUCTOR_TYPE_DEFAULT
         );
+        
+        return $service;
     }
 }
