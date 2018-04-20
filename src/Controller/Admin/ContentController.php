@@ -38,23 +38,8 @@ class ContentController extends Controller
      */
     public function add(APIManager $apiManager, Request $request)
     {
-        $content = new Content();
-        $form = $this->createForm(ContentType::class, $content);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $content = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($content);
-            $entityManager->flush();
-
-            return new Response('TODO OK');
-        }
-
-        return $this->render('admin/content/form.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return new Response($apiManager
+            ->getAPI()
+            ->getResponse());
     }
 }

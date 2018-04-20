@@ -1,56 +1,55 @@
 <?php
 namespace App\Core\ContentServer\Content\Admin\Content;
 
-use App\Core\ContentServer\Content\ContentInterface;
-use App\Core\ContentServer\Factory\ContentFactory;
-use App\Core\ContentServer\Repository\ContentRepository;
-use App\Core\Context\Context;
+use App\Core\RenderManager\Form\ContentType;
+use App\Entity\Content;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
-class AddContent implements ContentInterface
+class AddContent
 {
-    protected $repository;
-    protected $contentModel;
-    protected $contentFactory;
+    /**
+     * @var EntityManagerInterface
+     */
+    protected $entityManger;
 
     /**
      * @var FormFactoryInterface
      */
     protected $formFactory;
-    
-    public function __construct(ContentRepository $repository, ContentFactory $contentFactory, FormFactoryInterface $formFactory)
-    {
-        $this->repository = $repository;
-        $this->contentFactory = $contentFactory;
-        $this->formFactory = $formFactory;
 
+    /**
+     * @var Request
+     */
+    protected $request;
+    public function __construct(EntityManagerInterface $entityManager, FormFactoryInterface $formFactory, RequestStack $requestStack)
+    {
+        $this->entityManager = $entityManager;
+        $this->formFacqtory = $formFactory;
+
+        $this->request = $requestStack->getCurrentRequest();
     }
     
     public function addContent()
-    {        
-        $this->checkForm();
-    }
-    
-    protected function checkForm()
     {
-        return true;
-    }
+        $content = new Content();
+        $form = $this->formFactory
+            ->createBuilder(ContentType::class, $content)
+            ->getForm();
 
-    protected function setContentModel()
-    {
-        $contentUUId = Context::getContext()->request()->payload()
-            ->getItem('content_uuid');
+        $form->handleRequest($this->request);
 
-        $content = $this->repository->find($contentUUId);
-        $this->contentModel = $this->contentFactory->getModel($content);
-    }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $content = $form->getData();
 
-    public function getContent(): \stdClass
-    {
-        if (!$this->contentModel) {
-            $this->setContentModel();
+            $this->entityManager->persist($content);
+            $this->entityManager->flush();
+
+            return true;
         }
 
-        return $this->contentModel->getObjectContent();
+        return false;
     }
 }

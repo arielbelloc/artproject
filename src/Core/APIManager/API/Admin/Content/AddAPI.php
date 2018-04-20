@@ -2,6 +2,7 @@
 namespace App\Core\APIManager\API\Admin\Content;
 
 use App\Core\APIManager\API\APIInterface;
+use App\Core\ContentServer\Content\Admin\Content\AddContent;
 use App\Core\ContentServer\ContentManager;
 use App\Core\Context\Context;
 use App\Core\RenderManager\RenderManager;
@@ -23,7 +24,7 @@ class AddAPI implements APIInterface {
      */
     protected $contentManager;
 
-    public function __construct(RenderManager $renderManager, ContentManager $contentManager)
+    public function __construct(RenderManager $renderManager, AddContent $contentManager)
     {
         $this->renderManager = $renderManager;
         $this->contentManager = $contentManager;
@@ -39,12 +40,6 @@ class AddAPI implements APIInterface {
     
     private function saveForm()
     {
-        
-        var_dump(
-            Context::getContext()->request()->getArraySerialize()
-        );
-        
-        exit();
-        
+        return $this->contentManager->addContent();
     }
 }
