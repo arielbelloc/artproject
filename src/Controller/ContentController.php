@@ -1,8 +1,8 @@
 <?php
 namespace App\Controller;
 
-use App\Core\APIManager\APIManager;
-use App\Core\Context\Context;
+use App\Core\Site\APIManager\APIManager;
+use App\Core\Site\Context\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

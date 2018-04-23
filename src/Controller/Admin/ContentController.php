@@ -1,9 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Core\APIManager\APIManager;
-use App\Core\RenderManager\Form\ContentType;
-use App\Entity\Content;
+use App\Core\Site\APIManager\APIManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,9 +24,13 @@ class ContentController extends Controller
      */
     public function getForm(APIManager $apiManager)
     {
-        return new Response($apiManager
-            ->getAPI()
-            ->getResponse());
+        try {
+            return new Response($apiManager
+                ->getAPI()
+                ->getResponse());
+        } catch (\Exception $exception) {
+            echo $exception->getMessage();
+        }
     }
     
     /**

@@ -1,10 +1,10 @@
 <?php
 namespace App\Tests\UnitTest\Core\APIManager;
 
-use App\Core\APIManager\API\Content\IndexAPI;
-use App\Core\APIManager\API\DefaultAPI;
-use App\Core\APIManager\APIManager;
-use App\Core\Context\Context;
+use App\Core\Site\APIManager\API\Content\IndexAPI;
+use App\Core\Site\APIManager\API\DefaultAPI;
+use App\Core\Site\APIManager\APIManager;
+use App\Core\Site\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 
 class APIManager_getAPITest extends AbstractUnitTestCase

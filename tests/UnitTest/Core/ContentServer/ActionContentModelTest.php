@@ -1,7 +1,7 @@
 <?php
 namespace App\Tests\UnitTest\Core\ContentServer;
 
-use App\Core\ContentServer\Model\ActionContent\IndexActionContent;
+use App\Core\Site\ContentServer\Model\ActionContent\IndexActionContent;
 use App\Entity\ActionContent;
 use App\Entity\ImageContent;
 use App\Entity\TextContent;
@@ -26,10 +26,10 @@ class ActionContentModelTest extends TestCase
         $this->assertTrue(isset($arrayContent['text']));
         $this->assertTrue(isset($arrayContent['image']));
 
-        $this->assertTrue($arrayContent['image'] instanceof \App\Core\ContentServer\Model\Content\ImageContent);
+        $this->assertTrue($arrayContent['image'] instanceof \App\Core\Site\ContentServer\Model\Content\ImageContent);
         $this->assertEquals($arrayContent['image']->getImagePath(), 'TEST IMAGE CONTENT');
 
-        $this->assertTrue($arrayContent['text'] instanceof \App\Core\ContentServer\Model\Content\TextContent);
+        $this->assertTrue($arrayContent['text'] instanceof \App\Core\Site\ContentServer\Model\Content\TextContent);
         $this->assertEquals($arrayContent['text']->getValue(), 'TEST TEXT CONTENT');
     }
 
@@ -42,10 +42,10 @@ class ActionContentModelTest extends TestCase
         $this->assertTrue(property_exists($objectContent, 'text'));
         $this->assertTrue(property_exists($objectContent, 'image'));
 
-        $this->assertTrue($objectContent->image instanceof \App\Core\ContentServer\Model\Content\ImageContent);
+        $this->assertTrue($objectContent->image instanceof \App\Core\Site\ContentServer\Model\Content\ImageContent);
         $this->assertEquals($objectContent->image->getImagePath(), 'TEST IMAGE CONTENT');
 
-        $this->assertTrue($objectContent->text instanceof \App\Core\ContentServer\Model\Content\TextContent);
+        $this->assertTrue($objectContent->text instanceof \App\Core\Site\ContentServer\Model\Content\TextContent);
         $this->assertEquals($objectContent->text->getValue(), 'TEST TEXT CONTENT');
     }
 

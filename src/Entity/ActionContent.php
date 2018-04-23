@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Core\ContentServer\Repository\ActionContentRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ActionContentRepository")
  * @ORM\Table(name="action_content") 
  */
 class ActionContent

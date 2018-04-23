@@ -32,20 +32,20 @@ services:
             - { name: kernel.event_listener, event: kernel.controller }
                 
     # PUBLIC SERVICES
-    App\Core\APIManager\API\:
-        resource: '../src/Core/APIManager/API'
+    App\Core\Site\APIManager\API\:
+        resource: '../src/Core/Site/APIManager/API'
         public: true
         
-    App\Core\RenderManager\ViewConstructor\:
-        resource: '../src/Core/RenderManager/ViewConstructor'
+    App\Core\Site\RenderManager\ViewConstructor\:
+        resource: '../src/Core/Site/RenderManager/ViewConstructor'
         public: true
             
-    App\Core\ContentServer\Content\:
-        resource: '../src/Core/ContentServer/Content'
+    App\Core\Site\ContentServer\Content\:
+        resource: '../src/Core/Site/ContentServer/Content'
         public: true
         
     # TODO: Pasar a service_test     
-    App\Core\ContentServer\Repository\:
-        resource: '../src/Core/ContentServer/Repository'
+    App\Core\Site\ContentServer\Repository\:
+        resource: '../src/Core/Site/ContentServer/Repository'
         public: true
         

@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Core\ContentServer\Repository\ContentRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ContentRepository")
  * @ORM\Table(name="image_content")
  * 
  */

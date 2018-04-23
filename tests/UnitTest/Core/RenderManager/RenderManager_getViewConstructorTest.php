@@ -1,10 +1,10 @@
 <?php
 namespace App\Tests\UnitTest\Core\RenderManager;
 
-use App\Core\Context\Context;
-use App\Core\RenderManager\RenderManager;
-use App\Core\RenderManager\ViewConstructor\DefaultViewConstructor;
-use App\Core\RenderManager\ViewConstructor\Content\IndexViewConstructor;
+use App\Core\Site\Context\Context;
+use App\Core\Site\RenderManager\RenderManager;
+use App\Core\Site\RenderManager\ViewConstructor\DefaultViewConstructor;
+use App\Core\Site\RenderManager\ViewConstructor\Content\IndexViewConstructor;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 
 class RenderManager_getViewConstructorTest extends AbstractUnitTestCase

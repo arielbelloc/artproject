@@ -1,7 +1,7 @@
 <?php
 namespace App\EventListener;
 
-use App\Core\Context\Context;
+use App\Core\Site\Context\Context;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class EventListener

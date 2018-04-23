@@ -1,10 +1,10 @@
 <?php
 namespace App\Tests\UnitTest\Core\APIManager;
 
-use App\Core\APIManager\API\DefaultAPI;
-use App\Core\APIManager\API\Content\IndexAPI;
-use App\Core\BaseClass\AbstractServiceNameStrategy;
-use App\Core\Context\Context;
+use App\Core\Site\APIManager\API\DefaultAPI;
+use App\Core\Site\APIManager\API\Content\IndexAPI;
+use App\Core\Site\BaseClass\AbstractServiceNameStrategy;
+use App\Core\Site\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 
 class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
@@ -17,8 +17,8 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
             $stub,
             'getService',
             [
-                'App\Core\APIManager\API\%s\%sAPI',
-                'App\Core\APIManager\API\DefaultAPI'
+                'App\Core\Site\APIManager\API\%s\%sAPI',
+                'App\Core\Site\APIManager\API\DefaultAPI'
             ]
         );
 
@@ -33,8 +33,8 @@ class AbstractServiceNameStrategy_getServiceTest extends AbstractUnitTestCase
             $stub,
             'getService',
             [
-                'App\Core\APIManager\API\%s\%sAPI',
-                'App\Core\APIManager\API\DefaultAPI'
+                'App\Core\Site\APIManager\API\%s\%sAPI',
+                'App\Core\Site\APIManager\API\DefaultAPI'
             ]
         );
 

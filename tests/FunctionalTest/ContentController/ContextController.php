@@ -1,7 +1,7 @@
 <?php
 namespace App\Tests\FunctionalTest\ContextController;
 
-use App\Core\ContentServer\Repository\ActionContentRepository;
+use App\Core\Site\ContentServer\Repository\ActionContentRepository;
 use App\Tests\AbstractClass\AbstractFunctionalTestCase;
 
 /**

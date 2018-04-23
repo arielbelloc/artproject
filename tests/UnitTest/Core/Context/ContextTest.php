@@ -2,7 +2,7 @@
 
 namespace App\Tests\UnitTest\Core\Context;
 
-use App\Core\Context\Context;
+use App\Core\Site\Context\Context;
 use PHPUnit\Framework\TestCase;
 
 class ContextTest extends TestCase

@@ -1,7 +1,7 @@
 <?php
 namespace App\Tests\AbstractClass;
 
-use App\Core\Context\Context;
+use App\Core\Site\Context\Context;
 use App\Kernel;
 use App\Tests\Component\AssertExtension;
 use Doctrine\Common\DataFixtures\ReferenceRepository;

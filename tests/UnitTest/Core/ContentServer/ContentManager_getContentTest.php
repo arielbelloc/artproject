@@ -1,10 +1,10 @@
 <?php
 namespace App\Tests\UnitTest\Core\ContentServer;
 
-use App\Core\ContentServer\Content\DefaultContent;
-use App\Core\ContentServer\Content\Content\IndexContent;
-use App\Core\ContentServer\ContentManager;
-use App\Core\Context\Context;
+use App\Core\Site\ContentServer\Content\DefaultContent;
+use App\Core\Site\ContentServer\Content\Content\IndexContent;
+use App\Core\Site\ContentServer\ContentManager;
+use App\Core\Site\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 
 class ContentManager_getContentTest extends AbstractUnitTestCase
