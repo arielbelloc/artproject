@@ -3,7 +3,7 @@ namespace App\Tests\UnitTest\Core\APIManager;
 
 use App\Core\Site\APIManager\API\DefaultAPI;
 use App\Core\Site\APIManager\API\Content\IndexAPI;
-use App\Core\Site\BaseClass\AbstractServiceNameStrategy;
+use App\Core\General\BaseClass\AbstractServiceNameStrategy;
 use App\Core\Site\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
 

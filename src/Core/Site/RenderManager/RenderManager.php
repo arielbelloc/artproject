@@ -1,7 +1,7 @@
 <?php
 namespace App\Core\Site\RenderManager;
 
-use App\Core\Site\BaseClass\AbstractServiceNameStrategy;
+use App\Core\General\BaseClass\AbstractServiceNameStrategy;
 use App\Core\Site\RenderManager\ViewConstructor\ViewConstructorInterface;
 
 /**

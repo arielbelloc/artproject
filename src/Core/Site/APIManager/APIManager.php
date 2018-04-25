@@ -2,7 +2,7 @@
 namespace App\Core\Site\APIManager;
 
 use App\Core\Site\APIManager\API\APIInterface;
-use App\Core\Site\BaseClass\AbstractServiceNameStrategy;
+use App\Core\General\BaseClass\AbstractServiceNameStrategy;
 
 /**
  * Class APIManager

@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\Site\BaseClass;
+namespace App\Core\General\BaseClass;
 
 use App\Core\Site\Context\Context;
 use Psr\Container\ContainerInterface;

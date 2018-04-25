@@ -1,7 +1,7 @@
 <?php
 namespace App\Core\Site\ContentServer;
 
-use App\Core\Site\BaseClass\AbstractServiceNameStrategy;
+use App\Core\General\BaseClass\AbstractServiceNameStrategy;
 use App\Core\Site\ContentServer\Content\ContentInterface;
 
 class ContentManager extends AbstractServiceNameStrategy
