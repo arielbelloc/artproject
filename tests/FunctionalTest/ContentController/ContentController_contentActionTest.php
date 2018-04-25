@@ -1,7 +1,6 @@
 <?php
 namespace App\Tests\FunctionalTest\ContentController;
 
-use App\Entity\Content;
 use App\Tests\AbstractClass\AbstractFunctionalTestCase;
 use App\Tests\DataFixtures\Content\LoadImageContentFixture;
 
@@ -10,8 +9,6 @@ class ContentController_contentActionTest extends AbstractFunctionalTestCase
     public function testImageContentSuccess()
     {
         $this->fixtureManager()->load(new LoadImageContentFixture());
-
-        $test = $this->getRepository(Content::class)->findAll();
 
         $client = static::createClient();
         $crawler = $client->request('GET', '/content/UUID_ImageContent');

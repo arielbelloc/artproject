@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\Site\RenderManager\ViewConstructor\Content;
+namespace App\Core\Site\RenderManager\ViewConstructor\Site\Content;
 
 use App\Core\Site\ContentServer\ContentManager;
 use App\Core\Site\RenderManager\ViewConstructor\ViewConstructorInterface;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\Site\ContentServer\Content\Content;
+namespace App\Core\Site\ContentServer\Content\Site\Content;
 
 use App\Core\Site\ContentServer\Content\ContentInterface;
 use App\Core\Site\ContentServer\Model\ActionContent\ActionContentInterface;

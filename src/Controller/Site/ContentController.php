@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Site;
 
 use App\Core\Site\APIManager\APIManager;
 use App\Core\Site\Context\Context;

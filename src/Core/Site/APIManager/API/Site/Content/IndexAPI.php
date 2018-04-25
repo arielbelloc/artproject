@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\Site\APIManager\API\Content;
+namespace App\Core\Site\APIManager\API\Site\Content;
 
 use App\Core\Site\APIManager\API\DefaultAPI;
 
