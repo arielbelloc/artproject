@@ -11,11 +11,8 @@ class ContentController_getFormActionTest extends AbstractFunctionalTestCase
     {
         $this->fixtureManager()->load(new LoadImageContentFixture());
 
-        $test = $this->getRepository(Content::class)->findAll();
-
         $client = static::createClient();
         $client->request('GET', '/admin/content');
-        
 
         $this->assertSame(200, $client->getResponse()->getStatusCode());
     }

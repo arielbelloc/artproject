@@ -1,14 +1,15 @@
 <?php
-namespace App\Core\Site\ContentServer\Content\Admin\Content;
+namespace App\Core\Admin\Services;
 
-use App\Core\RenderManager\Form\ContentType;
-use App\Entity\Content;
+use App\Core\Admin\Form\ContentType;
+use App\Core\Site\APIManager\APIManager;
+use App\Entity\Content as ContentEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class AddContent
+class Content
 {
     /**
      * @var EntityManagerInterface
@@ -21,20 +22,33 @@ class AddContent
     protected $formFactory;
 
     /**
+     * @var APIManager
+     */
+    protected $apiManager;
+
+    /**
      * @var Request
      */
     protected $request;
-    public function __construct(EntityManagerInterface $entityManager, FormFactoryInterface $formFactory, RequestStack $requestStack)
+    public function __construct(EntityManagerInterface $entityManager, FormFactoryInterface $formFactory, RequestStack $requestStack, APIManager $apiManager)
     {
         $this->entityManager = $entityManager;
-        $this->formFacqtory = $formFactory;
+        $this->formFactory = $formFactory;
+        $this->apiManager = $apiManager;
 
         $this->request = $requestStack->getCurrentRequest();
     }
     
-    public function addContent()
+    public function getForm()
     {
-        $content = new Content();
+        return $this->apiManager
+            ->getAPI()
+            ->getResponse();
+    }
+    
+    public function contentForm()
+    {
+        $content = new ContentEntity();
         $form = $this->formFactory
             ->createBuilder(ContentType::class, $content)
             ->getForm();

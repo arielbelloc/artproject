@@ -1,8 +1,8 @@
 <?php
 namespace App\Tests\UnitTest\Core\APIManager;
 
-use App\Core\Site\APIManager\API\Content\IndexAPI;
 use App\Core\Site\APIManager\API\DefaultAPI;
+use App\Core\Site\APIManager\API\Site\Content\IndexAPI;
 use App\Core\Site\APIManager\APIManager;
 use App\Core\Site\Context\Context;
 use App\Tests\AbstractClass\AbstractUnitTestCase;
@@ -11,7 +11,7 @@ class APIManager_getAPITest extends AbstractUnitTestCase
 {
     public function testIndexStrategySuccess()
     {
-        Context::getContext()->hydrate(['request' => ['action' => 'index', 'namespace' => 'content']]);
+        Context::getContext()->hydrate(['request' => ['action' => 'index', 'namespace' => 'Site\Content']]);
         
         $apiManager = new APIManager($this->getContainer());
         $apiStrategy = $apiManager->getAPI();
@@ -21,7 +21,7 @@ class APIManager_getAPITest extends AbstractUnitTestCase
 
     public function testDefaultStrategySuccess()
     {
-        Context::getContext()->hydrate(['request' => ['action' => 'test_action', 'namespace' => 'content']]);
+        Context::getContext()->hydrate(['request' => ['action' => 'test_action', 'namespace' => 'Site\Content']]);
 
         $apiManager = new APIManager($this->getContainer());
         $apiStrategy = $apiManager->getAPI();

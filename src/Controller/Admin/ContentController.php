@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
+use App\Core\Admin\Services\Content;
 use App\Core\Site\APIManager\APIManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,15 +20,13 @@ class ContentController extends Controller
 {
     /**
      * @Route("/content", methods={"GET"})
-     * @param APIManager $apiManager
+     * @param Content $content
      * @return Response
      */
-    public function getForm(APIManager $apiManager)
+    public function getForm(Content $content)
     {
         try {
-            return new Response($apiManager
-                ->getAPI()
-                ->getResponse());
+            return new Response($content->getForm());
         } catch (\Exception $exception) {
             echo $exception->getMessage();
         }

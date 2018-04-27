@@ -1,5 +1,5 @@
 <?php
-namespace App\Core\Site\RenderManager\Form;
+namespace App\Core\Admin\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
